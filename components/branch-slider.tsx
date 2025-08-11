@@ -32,13 +32,18 @@ const branches = [
   {
     id: "slt-entertainment",
     title: "SLT Entertainment",
-    description:
-      "Creative entertainment solutions and talent development programs",
+    description: "Creative entertainment solutions and talent development",
     icon: Music,
     color: "from-purple-400 to-pink-600",
     bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
     href: "#branches",
-    features: ["Talent Management", "Event Production", "Creative Workshops"],
+    features: [
+      "Live DJ & Music Performances",
+      "Stage Setup",
+      "Audio & Visual Equipment Rental",
+      "Event Planning",
+      "Video Production & Live Streaming",
+    ],
   },
   {
     id: "slt-tech",
@@ -50,10 +55,10 @@ const branches = [
     href: "#branches",
     features: [
       "Web Development",
-      "Mobile Apps",
+      "Mobile App Development",
       "Digital Consulting",
       "Social Media Management",
-      "Graphics Designing"
+      "Graphics Designing",
     ],
   },
 ];
@@ -84,7 +89,7 @@ export function BranchSlider() {
                 <motion.div
                   whileHover={{ y: -8, scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className={`${branch.bgColor} rounded-3xl p-8 h-auto min-h-96 relative overflow-hidden group cursor-pointer`}
+                  className={`${branch.bgColor} rounded-3xl p-4 md:p-8 h-auto min-h-96 relative overflow-hidden group cursor-pointer`}
                 >
                   <div className="relative z-10 h-full flex flex-col">
                     <div
@@ -93,7 +98,7 @@ export function BranchSlider() {
                       <Icon className="h-8 w-8 text-white" />
                     </div>
 
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-4">
                       {branch.title}
                     </h3>
 
@@ -115,7 +120,7 @@ export function BranchSlider() {
 
                     <Link href={branch.href}>
                       <Button
-                        className={`bg-gradient-to-r ${branch.color} h-auto hover:opacity-90 transition-opacity w-full group overflow-hidden whitespace-normal ms:whitespace-nowrap text-center`}
+                        className={`bg-gradient-to-r ${branch.color} h-auto hover:opacity-90 transition-opacity w-full group overflow-hidden break-words whitespace-normal ms:whitespace-nowrap text-center`}
                       >
                         Explore {branch.title}
                         <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
