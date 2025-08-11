@@ -641,7 +641,7 @@ export default function SLTEnergiesPage() {
               // },
               {
                 title: "Commercial Solar Project",
-                location: "Downtown Business District",
+                location: "Buea",
                 image: "/images/slt-energies/project-installation-1.jpeg",
                 description:
                   "Large-scale solar installation for office complex",

@@ -48,7 +48,13 @@ const branches = [
     color: "from-blue-400 to-cyan-600",
     bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
     href: "#branches",
-    features: ["Web Development", "Mobile Apps", "Digital Consulting"],
+    features: [
+      "Web Development",
+      "Mobile Apps",
+      "Digital Consulting",
+      "Social Media Management",
+      "Graphics Designing"
+    ],
   },
 ];
 
