@@ -180,7 +180,10 @@ export default function SLTEnergiesContactPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 dark:text-gray-300">
-                    +237 677 777 777
+                    +237 679 993 626
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    +237 677 403 246
                   </p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Mon-Fri 8AM-6PM
@@ -214,10 +217,10 @@ export default function SLTEnergiesContactPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 dark:text-gray-300">
-                    123 Solar Street
+                    Mile 17, Buea
                   </p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Green City, GC 12345
+                    Cameroon
                   </p>
                 </CardContent>
               </Card>

@@ -15,7 +15,7 @@ const branches = [
     color: "from-green-400 to-emerald-600",
     bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
     href: "/slt-energies",
-    features: ["Solar Panel Installation", "Energy Consulting", "Maintenance Services"],
+    features: ["Solar Panel Installation", "Energy Consulting", "General Electrification of Buildings", "Security Systems"],
   },
   {
     id: "slt-entertainment",
@@ -24,7 +24,7 @@ const branches = [
     icon: Music,
     color: "from-purple-400 to-pink-600",
     bgColor: "bg-gradient-to-br from-purple-50 to-pink-50",
-    href: "/slt-entertainment",
+    href: "#branches",
     features: ["Talent Management", "Event Production", "Creative Workshops"],
   },
   {
@@ -34,7 +34,7 @@ const branches = [
     icon: Zap,
     color: "from-blue-400 to-cyan-600",
     bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
-    href: "/slt-tech",
+    href: "#branches",
     features: ["Web Development", "Mobile Apps", "Digital Consulting"],
   },
 ]
