@@ -622,7 +622,7 @@ export default function SLTEnergiesPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Engr. Funeh Lewis",
+                name: "Engr. Fuhneh Lewis",
                 role: "CEO/ Trainer/Solar installer & Field Engineer",
                 image: "/images/slt-energies/funeh.jpeg",
                 description:
