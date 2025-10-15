@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
   Sun,
@@ -17,17 +17,17 @@ import {
   Factory,
   Cpu,
   SatelliteDish,
-} from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { useTheme } from "next-themes"
+} from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { useTheme } from "next-themes";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6 },
-}
+};
 
 const staggerContainer = {
   animate: {
@@ -35,12 +35,13 @@ const staggerContainer = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 const services = [
   {
     title: "Solar System Installation",
-    description: "Complete solar panel installation services for residential and commercial properties",
+    description:
+      "Complete solar panel installation services for residential and commercial properties",
     icon: Sun,
     subservices: [
       "Residential Solar Systems",
@@ -52,7 +53,8 @@ const services = [
   },
   {
     title: "Domestic Wiring",
-    description: "Quality domestic wiring for safe, long-lasting electrical installations",
+    description:
+      "Quality domestic wiring for safe, long-lasting electrical installations",
     icon: Zap,
     subservices: [
       "Drawing Electrical Plans",
@@ -78,62 +80,64 @@ const services = [
   },
   {
     title: "Electronic Circuits",
-    description: "Custom electronic circuit design and installation for efficient, reliable device operation",
+    description:
+      "Custom electronic circuit design and installation for efficient, reliable device operation",
     icon: Cpu,
     subservices: ["Home Security Systems", "Alarm Systems"],
   },
   {
     title: "Satellite Disk Installation",
-    description: "Secure and accurate satellite dish installation for the best viewing experience",
+    description:
+      "Secure and accurate satellite dish installation for the best viewing experience",
     icon: SatelliteDish,
     subservices: ["Monitoring systems", "Security Camera Installation"],
   },
-]
+];
 
 export default function SLTEnergiesPage() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % services.length)
-    }, 5000)
+      setCurrentSlide((prev) => (prev + 1) % services.length);
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [isAutoPlaying, currentSlide])
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, currentSlide]);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
-  const { theme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const logoSrc =
     mounted && resolvedTheme === "dark"
       ? "/images/slt-energies/slt-energies-logo-dark.jpeg"
-      : "/images/slt-energies/slt-energies-logo-light.jpeg"
+      : "/images/slt-energies/slt-energies-logo-light.jpeg";
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % services.length)
-  }
+    setCurrentSlide((prev) => (prev + 1) % services.length);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + services.length) % services.length)
-  }
+    setCurrentSlide((prev) => (prev - 1 + services.length) % services.length);
+  };
 
   const goToSlide = (index: number) => {
-    setCurrentSlide(index)
-  }
+    setCurrentSlide(index);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-950 dark:to-gray-900">
@@ -162,8 +166,12 @@ export default function SLTEnergiesPage() {
                 />
               </div>
               <div>
-                <h1 className="font-bold text-xl text-gray-900 dark:text-white">SLT Energies</h1>
-                <p className="text-sm text-green-600">Sustainable Solar Solutions</p>
+                <h1 className="font-bold text-xl text-gray-900 dark:text-white">
+                  SLT Energies
+                </h1>
+                <p className="text-sm text-green-600">
+                  Sustainable Solar Solutions
+                </p>
               </div>
             </motion.div>
 
@@ -199,7 +207,11 @@ export default function SLTEnergiesPage() {
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={staggerContainer} initial="initial" animate="animate">
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
               <motion.h1
                 variants={fadeInUp}
                 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
@@ -211,13 +223,20 @@ export default function SLTEnergiesPage() {
                 </span>
               </motion.h1>
 
-              <motion.p variants={fadeInUp} className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                SLT Energies is dedicated to transforming communities through sustainable solar energy solutions. We
-                provide comprehensive solar services that reduce costs, increase energy independence, and protect our
-                planet.
+              <motion.p
+                variants={fadeInUp}
+                className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
+              >
+                SLT Energies is dedicated to transforming communities through
+                sustainable solar energy solutions. We provide comprehensive
+                solar services that reduce costs, increase energy independence,
+                and protect our planet.
               </motion.p>
 
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+              <motion.div
+                variants={fadeInUp}
+                className="flex flex-col sm:flex-row gap-4"
+              >
                 <Button
                   variant="outline"
                   size="lg"
@@ -243,7 +262,9 @@ export default function SLTEnergiesPage() {
               <div className="absolute inset-0 bg-gradient-to-br from-green-400/60 to-emerald-600/60 rounded-3xl flex flex-col justify-center items-center text-white text-center p-8">
                 <Sun className="h-24 w-24 mb-6" />
                 <h3 className="text-3xl font-bold mb-4">100% Clean Energy</h3>
-                <p className="text-green-100">Harness the power of the sun for a sustainable future</p>
+                <p className="text-green-100">
+                  Harness the power of the sun for a sustainable future
+                </p>
               </div>
             </motion.div>
           </div>
@@ -260,9 +281,12 @@ export default function SLTEnergiesPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Our Services</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Our Services
+            </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Comprehensive solar energy solutions tailored to meet your specific needs
+              Comprehensive solar energy solutions tailored to meet your
+              specific needs
             </p>
           </motion.div>
 
@@ -286,8 +310,10 @@ export default function SLTEnergiesPage() {
                   <div className="flex-shrink-0">
                     <div className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl flex items-center justify-center shadow-2xl">
                       {(() => {
-                        const Icon = services[currentSlide].icon
-                        return <Icon className="h-16 w-16 md:h-20 md:w-20 text-white" />
+                        const Icon = services[currentSlide].icon;
+                        return (
+                          <Icon className="h-16 w-16 md:h-20 md:w-20 text-white" />
+                        );
                       })()}
                     </div>
                   </div>
@@ -302,16 +328,20 @@ export default function SLTEnergiesPage() {
                     </p>
 
                     <div className="space-y-3 mb-6">
-                      <h4 className="font-semibold text-gray-900 dark:text-white">What we offer:</h4>
-                      {services[currentSlide].subservices.map((subservice, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center text-gray-700 dark:text-gray-300 justify-center md:justify-start"
-                        >
-                          <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                          {subservice}
-                        </div>
-                      ))}
+                      <h4 className="font-semibold text-gray-900 dark:text-white">
+                        What we offer:
+                      </h4>
+                      {services[currentSlide].subservices.map(
+                        (subservice, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center text-gray-700 dark:text-gray-300 justify-center md:justify-start"
+                          >
+                            <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                            {subservice}
+                          </div>
+                        )
+                      )}
                     </div>
 
                     <Link href="/slt-energies/contact">
@@ -377,10 +407,13 @@ export default function SLTEnergiesPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-transparent flex items-center">
               <div className="text-white p-8 md:p-12 max-w-2xl">
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">Leading the Solar Revolution</h3>
+                <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                  Leading the Solar Revolution
+                </h3>
                 <p className="text-lg md:text-xl text-green-100 mb-6">
-                  Discover how we're transforming communities with clean, sustainable energy solutions that reduce costs
-                  and protect our environment.
+                  Discover how we're transforming communities with clean,
+                  sustainable energy solutions that reduce costs and protect our
+                  environment.
                 </p>
                 <Button
                   size="lg"
@@ -408,10 +441,30 @@ export default function SLTEnergiesPage() {
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { icon: Sun, label: "Solar Installations", value: "100+", color: "text-yellow-500" },
-              { icon: Leaf, label: "CO₂ Reduced (tons)", value: "2,500+", color: "text-green-500" },
-              { icon: Users, label: "Happy Customers", value: "85+", color: "text-blue-500" },
-              { icon: Zap, label: "Energy Generated (MWh)", value: "1,200+", color: "text-purple-500" },
+              {
+                icon: Sun,
+                label: "Solar Installations",
+                value: "100+",
+                color: "text-yellow-500",
+              },
+              {
+                icon: Leaf,
+                label: "CO₂ Reduced (tons)",
+                value: "2,500+",
+                color: "text-green-500",
+              },
+              {
+                icon: Users,
+                label: "Happy Customers",
+                value: "85+",
+                color: "text-blue-500",
+              },
+              {
+                icon: Zap,
+                label: "Energy Generated (MWh)",
+                value: "1,200+",
+                color: "text-purple-500",
+              },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -424,7 +477,9 @@ export default function SLTEnergiesPage() {
                 <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4 dark:bg-green-900/20">
                   <stat.icon className={`h-8 w-8 ${stat.color}`} />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{stat.value}</h3>
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                  {stat.value}
+                </h3>
                 <p className="text-gray-600 dark:text-gray-300">{stat.label}</p>
               </motion.div>
             ))}
@@ -445,10 +500,13 @@ export default function SLTEnergiesPage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">Why Choose SLT Energies?</h2>
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                Why Choose SLT Energies?
+              </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                As a branch of Smart Life Transformers, SLT Energies combines our NGO's mission of community
-                transformation with cutting-edge solar technology. We're not just installing solar panels – we're
+                As a branch of Smart Life Transformers, SLT Energies combines
+                our NGO's mission of community transformation with cutting-edge
+                solar technology. We're not just installing solar panels – we're
                 building a sustainable future.
               </p>
 
@@ -456,19 +514,23 @@ export default function SLTEnergiesPage() {
                 {[
                   {
                     title: "Expert Installation",
-                    description: "Certified professionals with years of experience in solar technology",
+                    description:
+                      "Certified professionals with years of experience in solar technology",
                   },
                   {
                     title: "Community Focus",
-                    description: "As an NGO branch, we prioritize community benefit and accessibility",
+                    description:
+                      "As an NGO branch, we prioritize community benefit and accessibility",
                   },
                   {
                     title: "Sustainable Impact",
-                    description: "Every installation contributes to environmental conservation",
+                    description:
+                      "Every installation contributes to environmental conservation",
                   },
                   {
                     title: "Ongoing Support",
-                    description: "Comprehensive maintenance and support for optimal performance",
+                    description:
+                      "Comprehensive maintenance and support for optimal performance",
                   },
                 ].map((feature, index) => (
                   <motion.div
@@ -483,8 +545,12 @@ export default function SLTEnergiesPage() {
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{feature.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300">
+                        {feature.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -501,19 +567,29 @@ export default function SLTEnergiesPage() {
               <div className="aspect-square bg-gradient-to-br from-green-100 to-emerald-100 rounded-3xl p-8 relative overflow-hidden dark:from-gray-800 dark:to-gray-700">
                 <div className="h-full flex flex-col justify-center items-center text-center">
                   <Leaf className="h-24 w-24 text-green-600 mb-6" />
-                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Eco-Friendly Solutions</h3>
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    Eco-Friendly Solutions
+                  </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Our solar installations help reduce carbon footprint while providing clean, renewable energy for
-                    your home or business.
+                    Our solar installations help reduce carbon footprint while
+                    providing clean, renewable energy for your home or business.
                   </p>
                   <div className="grid grid-cols-2 gap-4 w-full">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">25+</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-300">Years Warranty</div>
+                      <div className="text-2xl font-bold text-green-600">
+                        25+
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-300">
+                        Years Warranty
+                      </div>
                     </div>
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-green-600">90%</div>
-                      <div className="text-sm text-gray-600 dark:text-gray-300">Cost Savings</div>
+                      <div className="text-2xl font-bold text-green-600">
+                        90%
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-300">
+                        Cost Savings
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -524,7 +600,7 @@ export default function SLTEnergiesPage() {
       </section>
 
       {/* Meet Our Team Section */}
-      {/* <section className="py-20 px-4 bg-white dark:bg-gray-900">
+      <section className="py-20 px-4 bg-white dark:bg-gray-900">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -533,32 +609,44 @@ export default function SLTEnergiesPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Meet Our Team</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Meet Our Team
+            </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Our dedicated professionals bring years of experience in solar technology, engineering, and community
-              development to every project.
+              Our dedicated professionals bring years of experience in solar
+              technology, engineering, and community development to every
+              project.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
-                role: "Lead Solar Engineer",
-                image: "/placeholder.svg?height=400&width=400&text=Sarah+Johnson",
-                description: "15+ years in renewable energy systems design and implementation",
+                name: "Engr. Funeh Lewis",
+                role: "CEO/ Trainer/Solar installer & Field Engineer",
+                image: "/images/slt-energies/funeh.jpeg",
+                description:
+                  "Engineer in Electrical Power Systems ( M.Eng / PhD Researcher)",
               },
               {
-                name: "Michael Chen",
-                role: "Installation Manager",
-                image: "/placeholder.svg?height=400&width=400&text=Michael+Chen",
-                description: "Expert in residential and commercial solar installations",
+                name: "Engr. Ofon Chrystutom",
+                role: "Trainer/Solar",
+                image: "/images/slt-energies/ofon.jpeg",
+                description:
+                  "Engineer in Electrical Power Systems ( M.Eng / PhD Researcher)",
               },
               {
-                name: "Dr. Amara Okafor",
-                role: "Energy Consultant",
-                image: "/placeholder.svg?height=400&width=400&text=Dr.+Amara+Okafor",
-                description: "PhD in Sustainable Energy, specializing in energy efficiency solutions",
+                name: "Engr. Kang Hycenth",
+                role: "Trainer/Solar",
+                image: "/images/slt-energies/kang.jpeg",
+                description: "Engineer in Electronic systems and solar energy",
+              },
+              {
+                name: "Engr. Asonganyi Rouclec",
+                role: "IT Manager",
+                image: "/images/slt-energies/asonganyi.jpg",
+                description:
+                  "Software Engineer (B.Eng Computer Engineering)",
               },
             ].map((member, index) => (
               <motion.div
@@ -576,14 +664,20 @@ export default function SLTEnergiesPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{member.name}</h3>
-                <p className="text-green-600 font-semibold mb-3">{member.role}</p>
-                <p className="text-gray-600 dark:text-gray-300">{member.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-green-600 font-semibold mb-3">
+                  {member.role}
+                </p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {member.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Inside SLT Energies Section */}
       <section
@@ -598,50 +692,59 @@ export default function SLTEnergiesPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Inside SLT Energies</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Inside SLT Energies
+            </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Take a look at some of our recent projects and see the impact we're making in communities through
-              sustainable solar energy solutions.
+              Take a look at some of our recent projects and see the impact
+              we're making in communities through sustainable solar energy
+              solutions.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
+                title: "Community Energy Workshop",
+                location: "Buea Community",
+                image: "/images/slt-energies/training-3.jpeg",
+                description:
+                  "Engaging workshops on energy crises and sustainable solutions",
+              },
+              {
                 title: "Commercial Solar Project",
                 location: "Buea",
                 image: "/images/slt-energies/project-installation-1.jpeg",
-                description: "Large-scale solar installation for office complex",
+                description:
+                  "Large-scale solar installation for office complex",
               },
               {
                 title: "Community Solar Farm",
                 location: "Rural Development Area",
                 image: "/images/slt-energies/banner-panels-roof.jpeg",
-                description: "Community solar farm providing clean energy to 200+ families",
+                description:
+                  "Community solar farm providing clean energy to 200+ families",
               },
               {
                 title: "School Solar Initiative",
                 location: "Local Education Center",
                 image: "/images/slt-energies/project-equipment-1.jpeg",
-                description: "Educational solar installation with learning components",
+                description:
+                  "Educational solar installation with learning components",
               },
               {
                 title: "Industrial Solar Solution",
                 location: "Manufacturing District",
                 image: "/images/slt-energies/project-equipment-2.jpeg",
-                description: "High-capacity solar system for manufacturing facility",
+                description:
+                  "High-capacity solar system for manufacturing facility",
               },
               {
                 title: "Off-Grid Solar System",
                 location: "Remote Community",
                 image: "/images/slt-energies/project-team-indoor.jpeg",
-                description: "Off-grid solar solution for remote community access",
-              },
-              {
-                title: "Community Energy Workshop",
-                location: "Buea Community",
-                image: "/images/slt-energies/project-workshop.jpeg",
-                description: "Engaging workshops on energy crises and sustainable solutions",
+                description:
+                  "Off-grid solar solution for remote community access",
               },
             ].map((project, index) => (
               <motion.div
@@ -665,8 +768,12 @@ export default function SLTEnergiesPage() {
                       <MapPin className="h-4 w-4 mr-1" />
                       {project.location}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      {project.description}
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -694,7 +801,10 @@ export default function SLTEnergiesPage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 bg-gradient-to-r from-green-500 to-emerald-600">
+      <section
+        id="contact"
+        className="py-20 px-4 bg-gradient-to-r from-green-500 to-emerald-600"
+      >
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -703,10 +813,12 @@ export default function SLTEnergiesPage() {
             viewport={{ once: true }}
             className="text-center text-white mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Go Solar?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Ready to Go Solar?
+            </h2>
             <p className="text-xl text-green-100 max-w-3xl mx-auto">
-              Contact us today for a free consultation and discover how SLT Energies can help you transition to clean,
-              sustainable energy.
+              Contact us today for a free consultation and discover how SLT
+              Energies can help you transition to clean, sustainable energy.
             </p>
           </motion.div>
 
@@ -731,7 +843,7 @@ export default function SLTEnergiesPage() {
                 description: "Cameroon",
               },
             ].map((contact, index) => {
-              const Icon = contact.icon
+              const Icon = contact.icon;
               return (
                 <motion.div
                   key={index}
@@ -744,11 +856,15 @@ export default function SLTEnergiesPage() {
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Icon className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{contact.title}</h3>
-                  <p className="text-lg font-medium text-green-100 mb-1 whitespace-pre-line">{contact.info}</p>
+                  <h3 className="text-xl font-semibold mb-2">
+                    {contact.title}
+                  </h3>
+                  <p className="text-lg font-medium text-green-100 mb-1 whitespace-pre-line">
+                    {contact.info}
+                  </p>
                   <p className="text-green-200">{contact.description}</p>
                 </motion.div>
-              )
+              );
             })}
           </div>
 
@@ -830,7 +946,9 @@ export default function SLTEnergiesPage() {
                 </div>
                 <span className="font-bold">SLT Energies</span>
               </div>
-              <p className="text-gray-400">Sustainable solar solutions for a brighter future.</p>
+              <p className="text-gray-400">
+                Sustainable solar solutions for a brighter future.
+              </p>
             </div>
 
             <div>
@@ -892,9 +1010,14 @@ export default function SLTEnergiesPage() {
 
             <div>
               <h4 className="font-semibold mb-4">Connect</h4>
-              <p className="text-gray-400 mb-4">Get in touch for solar energy solutions.</p>
+              <p className="text-gray-400 mb-4">
+                Get in touch for solar energy solutions.
+              </p>
               <Link href="/slt-energies/contact">
-                <Button variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800 bg-transparent">
+                <Button
+                  variant="outline"
+                  className="border-gray-600 text-gray-300 hover:bg-gray-800 bg-transparent"
+                >
                   Contact Us
                 </Button>
               </Link>
@@ -902,10 +1025,13 @@ export default function SLTEnergiesPage() {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 SLT Energies - A branch of Smart Life Transformers. All rights reserved.</p>
+            <p>
+              &copy; 2025 SLT Energies - A branch of Smart Life Transformers.
+              All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
