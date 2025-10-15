@@ -243,7 +243,7 @@ export default function SLTEnergiesPage() {
                   className="border-green-500 text-green-600 hover:bg-green-50 bg-transparent dark:border-green-400 dark:text-green-400 dark:hover:bg-green-900/20"
                   onClick={() => scrollToSection("inside-slt")}
                 >
-                  View Our Projects
+                  View Our Recent Projects
                 </Button>
               </motion.div>
             </motion.div>
