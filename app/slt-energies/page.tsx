@@ -792,7 +792,7 @@ export default function SLTEnergiesPage() {
                 size="lg"
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700"
               >
-                View All Projects
+                View Our Recent Projects
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
