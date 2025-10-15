@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import { ArrowLeft, MapPin, Calendar, Users, Play } from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { useTheme } from "next-themes"
-import { useParams } from "next/navigation"
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { ArrowLeft, MapPin, Calendar, Users, Play } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { useTheme } from "next-themes";
+import { useParams } from "next/navigation";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6 },
-}
+};
 
 // Project data - you'll replace this with your actual content
 const projectData: Record<string, any> = {
@@ -44,7 +44,8 @@ const projectData: Record<string, any> = {
       {
         type: "image",
         src: "/images/slt-energies/training-4.jpeg",
-        caption: "Workshop participants learning about solar panel installation",
+        caption:
+          "Workshop participants learning about solar panel installation",
       },
       {
         type: "image",
@@ -63,63 +64,84 @@ const projectData: Record<string, any> = {
       },
       {
         type: "image",
-        src: "/images/slt-energies/banner-engineer-panels.jpeg",
-        caption: "Practical rooftop installation training",
+        src: "/images/slt-energies/partners.jpeg",
+        caption: "Main Chiefs / Engineers",
       },
       {
         type: "image",
-        src: "/images/slt-energies/banner-panels-roof.jpeg",
-        caption: "Completed solar panel installation demonstration",
+        src: "/images/slt-energies/banner-engineer-panels.jpeg",
+        caption: "Practical rooftop installation training",
       },
+      //   {
+      //     type: "image",
+      //     src: "/images/slt-energies/banner-panels-roof.jpeg",
+      //     caption: "Completed solar panel installation demonstration",
+      //   },
     ],
     testimonials: [
       {
-        name: "John Doe",
-        role: "Workshop Participant",
+        name: "RWINWI HERBERT NGANJU",
+        role: "Electrical Engineer",
         quote:
-          "This training program changed my life. I now have the skills and confidence to work in the solar industry and contribute to my community's energy independence.",
+          "The workshop gave me a clear understanding of how solar systems operate. I now have the confidence to install panels and support my community in adopting clean energy solutions.",
       },
       {
-        name: "Jane Smith",
-        role: "Local Engineer",
+        name: "AGBOR DIRANE ANAAH",
+        role: "University Student",
         quote:
-          "The hands-on approach and expert instructors made this workshop incredibly valuable. I'm now able to design and install solar systems for my clients.",
+          "Through this training, I gained practical knowledge about solar technology and how to apply it in real-life projects. It has inspired me to pursue a career in renewable energy.",
+      },
+      {
+        name: "CHI PEACE NDE",
+        role: "Community Volunteer",
+        quote:
+          "The program was a great learning experience. I now share what I learned with others in my community, showing them how solar energy can improve daily life.",
+      },
+      {
+        name: "MENDI JETTEL",
+        role: "Technician Apprentice",
+        quote:
+          "The training was practical and easy to follow. I learned how to properly connect panels, inverters, and batteries, and I now feel ready to work on real solar projects.",
       },
     ],
     impact:
       "This workshop represents our commitment to building local capacity in renewable energy. By training community members, we're not just installing solar panels – we're creating a sustainable ecosystem of skilled professionals who can drive the clean energy transition in Cameroon.",
   },
-}
+};
 
 export default function ProjectDetailPage() {
-  const params = useParams()
-  const slug = params.slug as string
-  const project = projectData[slug]
+  const params = useParams();
+  const slug = params.slug as string;
+  const project = projectData[slug];
 
-  const { theme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  const [selectedMedia, setSelectedMedia] = useState<number | null>(null)
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [selectedMedia, setSelectedMedia] = useState<number | null>(null);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const logoSrc =
     mounted && resolvedTheme === "dark"
       ? "/images/slt-energies/slt-energies-logo-dark.jpeg"
-      : "/images/slt-energies/slt-energies-logo-light.jpeg"
+      : "/images/slt-energies/slt-energies-logo-light.jpeg";
 
   if (!project) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-950 dark:to-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Project Not Found</h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Project Not Found
+          </h1>
           <Link href="/slt-energies/projects">
-            <Button className="bg-gradient-to-r from-green-500 to-emerald-600">Back to Projects</Button>
+            <Button className="bg-gradient-to-r from-green-500 to-emerald-600">
+              Back to Projects
+            </Button>
           </Link>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -149,7 +171,9 @@ export default function ProjectDetailPage() {
                 />
               </div>
               <div className="hidden md:block">
-                <h1 className="font-bold text-xl text-gray-900 dark:text-white">SLT Energies</h1>
+                <h1 className="font-bold text-xl text-gray-900 dark:text-white">
+                  SLT Energies
+                </h1>
                 <p className="text-sm text-green-600">Project Details</p>
               </div>
             </motion.div>
@@ -162,12 +186,18 @@ export default function ProjectDetailPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-12 px-4">
         <div className="container mx-auto max-w-6xl">
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="mb-6">
               <span className="inline-block bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
                 {project.category}
               </span>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">{project.title}</h1>
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+                {project.title}
+              </h1>
               <div className="flex flex-wrap gap-6 text-gray-600 dark:text-gray-300">
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 mr-2 text-green-600" />
@@ -204,8 +234,12 @@ export default function ProjectDetailPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Project Overview</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">{project.overview}</p>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Project Overview
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              {project.overview}
+            </p>
           </motion.div>
         </div>
       </section>
@@ -221,14 +255,18 @@ export default function ProjectDetailPage() {
               viewport={{ once: true }}
               className="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-lg"
             >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Objectives</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                Objectives
+              </h3>
               <ul className="space-y-4">
                 {project.objectives.map((objective: string, index: number) => (
                   <li key={index} className="flex items-start">
                     <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1 mr-3">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
-                    <span className="text-gray-600 dark:text-gray-300">{objective}</span>
+                    <span className="text-gray-600 dark:text-gray-300">
+                      {objective}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -241,14 +279,18 @@ export default function ProjectDetailPage() {
               viewport={{ once: true }}
               className="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-lg"
             >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Outcomes</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                Outcomes
+              </h3>
               <ul className="space-y-4">
                 {project.outcomes.map((outcome: string, index: number) => (
                   <li key={index} className="flex items-start">
                     <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1 mr-3">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
-                    <span className="text-gray-600 dark:text-gray-300">{outcome}</span>
+                    <span className="text-gray-600 dark:text-gray-300">
+                      {outcome}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -266,7 +308,9 @@ export default function ProjectDetailPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Photo Gallery</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+              Photo Gallery
+            </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {project.gallery.map((media: any, index: number) => (
                 <motion.div
@@ -300,7 +344,9 @@ export default function ProjectDetailPage() {
                       </div>
                     )}
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-3">{media.caption}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-3">
+                    {media.caption}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -318,7 +364,9 @@ export default function ProjectDetailPage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">What Participants Say</h2>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+                What Participants Say
+              </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {project.testimonials.map((testimonial: any, index: number) => (
                   <motion.div
@@ -330,10 +378,16 @@ export default function ProjectDetailPage() {
                     className="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-lg"
                   >
                     <div className="text-green-600 text-5xl mb-4">"</div>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6 italic">{testimonial.quote}</p>
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 italic">
+                      {testimonial.quote}
+                    </p>
                     <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+                      <p className="font-semibold text-gray-900 dark:text-white">
+                        {testimonial.name}
+                      </p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        {testimonial.role}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -354,7 +408,9 @@ export default function ProjectDetailPage() {
             className="text-center text-white"
           >
             <h2 className="text-3xl font-bold mb-6">Project Impact</h2>
-            <p className="text-lg text-green-100 leading-relaxed">{project.impact}</p>
+            <p className="text-lg text-green-100 leading-relaxed">
+              {project.impact}
+            </p>
           </motion.div>
         </div>
       </section>
@@ -372,7 +428,8 @@ export default function ProjectDetailPage() {
               Interested in Our Training Programs?
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Contact us to learn about upcoming workshops and training opportunities in renewable energy.
+              Contact us to learn about upcoming workshops and training
+              opportunities in renewable energy.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/slt-energies/contact">
@@ -401,7 +458,8 @@ export default function ProjectDetailPage() {
       <footer className="bg-gray-900 text-white py-12 px-4">
         <div className="container mx-auto text-center">
           <p className="text-gray-400">
-            &copy; 2025 SLT Energies - A branch of Smart Life Transformers. All rights reserved.
+            &copy; 2025 SLT Energies - A branch of Smart Life Transformers. All
+            rights reserved.
           </p>
         </div>
       </footer>
@@ -418,10 +476,12 @@ export default function ProjectDetailPage() {
               alt={project.gallery[selectedMedia].caption}
               className="w-full h-auto rounded-lg"
             />
-            <p className="text-white text-center mt-4">{project.gallery[selectedMedia].caption}</p>
+            <p className="text-white text-center mt-4">
+              {project.gallery[selectedMedia].caption}
+            </p>
           </div>
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -408,9 +408,9 @@ export default function SLTEnergiesPage() {
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
-              { icon: Sun, label: "Solar Installations", value: "500+", color: "text-yellow-500" },
+              { icon: Sun, label: "Solar Installations", value: "100+", color: "text-yellow-500" },
               { icon: Leaf, label: "CO₂ Reduced (tons)", value: "2,500+", color: "text-green-500" },
-              { icon: Users, label: "Happy Customers", value: "300+", color: "text-blue-500" },
+              { icon: Users, label: "Happy Customers", value: "85+", color: "text-blue-500" },
               { icon: Zap, label: "Energy Generated (MWh)", value: "1,200+", color: "text-purple-500" },
             ].map((stat, index) => (
               <motion.div

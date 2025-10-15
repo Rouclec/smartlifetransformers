@@ -319,6 +319,9 @@ export default function HomePage() {
                 <p className="text-gray-600 dark:text-gray-300">
                   +237 679 993 626
                 </p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  +49 15 774868865
+                </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Mon-Fri 9AM-6PM
                 </p>
