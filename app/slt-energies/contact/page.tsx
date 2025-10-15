@@ -24,13 +24,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useTheme } from "next-themes";
 import emailjs from "@emailjs/browser"; // Import emailjs
@@ -185,6 +178,9 @@ export default function SLTEnergiesContactPage() {
                   <p className="text-gray-600 dark:text-gray-300">
                     +237 677 403 246
                   </p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    +49 15 774868865
+                  </p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Mon-Fri 8AM-6PM
                   </p>
@@ -219,9 +215,7 @@ export default function SLTEnergiesContactPage() {
                   <p className="text-gray-600 dark:text-gray-300">
                     Mile 17, Buea
                   </p>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Cameroon
-                  </p>
+                  <p className="text-gray-600 dark:text-gray-300">Cameroon</p>
                 </CardContent>
               </Card>
 
